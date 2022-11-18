@@ -9,12 +9,36 @@ package tp.puissance4;
  * @author Elisa
  */
 public class CelluleDeGrille {
-    private String jetonCourant;
-
-
-   public CelluleDeGrille(String jetonCourant) {
-        this.jetonCourant = jetonCourant;
-        
-    }
+    private jeton jetonCourant;
     
+
+   public CelluleDeGrille(jeton jetonCourant) {
+        this.jetonCourant = jetonCourant;
+        jetonCourant = null;
+    }
+   public boolean presenceJeton(){
+       if (jetonCourant!=null){
+           return true;
+       }else{
+    return false ;
+       }
+    }
+   
+
+   
+   
+   public String lireCouleurDuJeton(){
+   if (presenceJeton()==true){
+       return jeton.lireCouleur() ;
+   }   else{
+       return "vide";
+   } 
+   } 
+   
+   
+   public  recupererJeton(){
+       
+   }
 }
+
+    

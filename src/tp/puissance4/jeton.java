@@ -10,7 +10,7 @@ package tp.puissance4;
  * @author Elisa
  */
 public class jeton {
-    private String couleur ;
+    String couleur ;
     
     public jeton(String couleur) {
         this.couleur = couleur;
@@ -21,7 +21,7 @@ public class jeton {
     }
 
     @Override
-    public String toString() { //renvoie la bonne couleur
+    public String toString() { //renvoie la bonne couleur avec differente nomenclature saisie
        if (couleur=="jaune" || couleur =="Jaune" || couleur == "JAUNE"){
         return  " J " ;
     }else if (couleur=="rouge" || couleur == "Rouge" || couleur == "ROUGE") {
