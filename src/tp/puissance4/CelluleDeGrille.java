@@ -16,28 +16,26 @@ public class CelluleDeGrille {
         this.jetonCourant = jetonCourant;
         jetonCourant = null;
     }
+   
    public boolean presenceJeton(){
        if (jetonCourant!=null){
            return true;
        }else{
-    return false ;
+           return false ;
        }
     }
    
-
-   
+   public jeton affecterJeton(jeton jet){
+       jetonCourant = jet ;
+       return jetonCourant;
+   }
    
    public String lireCouleurDuJeton(){
    if (presenceJeton()==true){
-       return jeton.lireCouleur() ;
-   }   else{
+       return jetonCourant.lireCouleur() ;
+   }else{
        return "vide";
    } 
-   } 
-   
-   
-   public  recupererJeton(){
-       
    }
 }
 

@@ -18,7 +18,9 @@ public class TPPuissance4 {
         jeton J1 = new jeton ("JAUNE");
         System.out.println(J1);
         
-    
+        PlateauDeJeu P1 = new PlateauDeJeu();
+        System.out.println(P1);
+        
     }
     
     

@@ -19,8 +19,48 @@ public class PlateauDeJeu {
         }   
     }
     
-    public int ajouterJetonDansColonne(String jeton, int indice){
-    
+    public int ajouterJetonDansColonne(jeton Jeton, int indice){
+        
     }
-   
+    
+    public grilleRemplie(){
+        
+    }
+    
+    public viderGrille(String Joueur, String Joueur){
+        
+    }
+    
+    public afficherGrilleSurConsole(){
+        
+    }
+    
+    public presenceJeton(int x, int y){
+        
+    }
+    
+    public lireCouleurJeton(int x, int y){
+        
+    }
+    
+    public etreGagnantePourCouleur(String couleur){
+        public ligneGagnantepourCouleur(String couleur){
+            
+        }
+        
+        public colonneGagnantePourCouleur(String couleur){
+            
+        }
+        
+        public diagonaleMontanteGagnantePourCouleur(String couleur){
+            
+        }
+        
+        public diagonaleDesencanteGagnantePourCouleur(String){
+            
+        }
+    }
+    
+    
+    
 }
