@@ -12,22 +12,25 @@ package tp.puissance4;
 public class jeton {
     private String couleur ;
    
-    public jeton(String couleur) {
+    public String jeton(String couleur) { //vérifie que la couleur du jeton reste bien jaune ou rouge
         this.couleur = couleur; 
+        if (couleur!="rouge" && couleur!="jaune"){
+            return "Que deux couleurs possible (rouge et jaune)"; 
+        }else{
+            return couleur;
+        }
     }
     
-    public String lireCouleur(){
+    public String lireCouleur(){ //lit la couleur
         return couleur ; 
     }
 
     @Override
-    public String toString() {
+    public String toString() { //renvoie la bonne couleur
        if (couleur=="jaune"){
         return  " J " ;
-    }else if (couleur=="rouge"){
-        return "R";
     }else {
-        return "vous n'avez pas entré la bonne couleur";
+        return "R";
     }    
     }
 }
