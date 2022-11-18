@@ -9,5 +9,12 @@ package tp.puissance4;
  * @author Elisa
  */
 public class CelluleDeGrille {
+    private String jetonCourant;
+
+
+   public CelluleDeGrille(String jetonCourant) {
+        this.jetonCourant = jetonCourant;
+        
+    }
     
 }
