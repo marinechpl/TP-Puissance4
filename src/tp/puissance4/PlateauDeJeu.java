@@ -14,7 +14,7 @@ public class PlateauDeJeu {
     public PlateauDeJeu() {
         for (int i=0; i<6;i++){
             for (int j=0; j<7; j++){
-                grille[i][j] = grille[6][7];
+                grille[i][j] = new CelluleDeGrille(null);
             }            
         }   
     }
