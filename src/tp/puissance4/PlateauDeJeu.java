@@ -31,15 +31,16 @@ public class PlateauDeJeu {
     }
 
     public boolean grilleRemplie(){
+        boolean rep = false ;
         for (int i=0; i<6; i++){
             for (int j=0; j<7;j++){
                 if (grille[i][j].presenceJeton()==false){
-                    return false;
-                }else {
-                    return true;
+                    rep=false;
+                } else {
+                    rep=true;
+                }
             }
-        }
-    }
+        } return rep ;
     }
         
     public boolean colonneRemplie(int ind_c){
@@ -50,13 +51,11 @@ public class PlateauDeJeu {
         }return true;
     }
     
-    public viderGrille(String Joueur, String Joueur){
-        
-    }
+    //public viderGrille(String Joueur, String Joueur){  
+    //}
     
-    public afficherGrilleSurConsole(){
-        
-    }
+    //public afficherGrilleSurConsole(){  
+    //}
     
     public Boolean presenceJeton(int x, int y){
         boolean pres = grille[x][y].presenceJeton();
@@ -68,8 +67,8 @@ public class PlateauDeJeu {
         return couleur ; 
     }
     
-    public boolean etreGagnantePourCouleur(String couleur){
-    }
+    //public boolean etreGagnantePourCouleur(String couleur){
+    //}
 
     public boolean ligneGagnantepourCouleur(String couleur){ 
             boolean rep_c = false;
@@ -93,12 +92,12 @@ public class PlateauDeJeu {
             }return rep_l;   
     }
 
-    public boolean diagonaleMontanteGagnantePourCouleur(String couleur){
+    //public boolean diagonaleMontanteGagnantePourCouleur(String couleur){
         
-    }
+    //}
     
-    public boolean diagonaleDesencanteGagnantePourCouleur(String couleur){
-    }
+    //public boolean diagonaleDesencanteGagnantePourCouleur(String couleur){
+    //}
 
 
 
