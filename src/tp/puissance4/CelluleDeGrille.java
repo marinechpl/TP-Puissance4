@@ -37,6 +37,15 @@ public class CelluleDeGrille {
        return "vide";
    } 
    }
+   public  recupererJeton(){
+      CelluleDeGrille a = new CelluleDeGrille();
+      jetonCourant = a; 
+      return a.recupererJeton();
+      }
+      
+      }
+       
+   }
 }
 
     
