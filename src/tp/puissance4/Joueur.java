@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.puissance4;
-
+import java. util. ArrayList;
 /**
  *
  * @author Elisa
@@ -11,7 +11,7 @@ package tp.puissance4;
 public class Joueur {
     private String nom; 
     private String couleur;
-    private jeton reserveJetons;
+    private ArrayList <Jeton> reserveJetons;
   
     
     public Joueur(String nom, String couleur, int reserveJetons) {
@@ -20,7 +20,7 @@ public class Joueur {
         this.reserveJetons = reserveJetons;
     }
     public String joueur(){
-        nom= " ";
+        nom= " "; 
         return nom;
     }
     
@@ -32,8 +32,8 @@ public class Joueur {
     return length.reserveJetons();
     }
     
-    public jeton ajouterJeton();
-    
+    public  ajouterJeton(Jeton){
+    Jeton.reserveJeton;
     
 }
 
