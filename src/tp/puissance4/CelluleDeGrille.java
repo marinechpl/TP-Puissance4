@@ -9,8 +9,7 @@ package tp.puissance4;
  * @author Elisa
  */
 public class CelluleDeGrille {
-    private jeton jetonCourant;
-    
+    private jeton jetonCourant;  
 
    public CelluleDeGrille(jeton jetonCourant) {
         this.jetonCourant = jetonCourant;
@@ -37,15 +36,24 @@ public class CelluleDeGrille {
        return "vide";
    } 
    }
-   public  recupererJeton(){
-      CelluleDeGrille a = new CelluleDeGrille();
-      jetonCourant = a; 
-      return a.recupererJeton();
+
+    @Override
+    public  String toString() {
+      // return "CelluleDeGrille{" + "jetonCourant=" + jetonCourant + '}';
+        
+      System.out.println(lireCouleurDuJeton());
+      if (presenceJeton()==false){
+        System.out.println(".");
       }
+         
+          
+      }  
+    }
+
       
-      }
+
        
-   }
-}
+   
+
 
     

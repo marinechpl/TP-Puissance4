@@ -21,6 +21,8 @@ public class TPPuissance4 {
         PlateauDeJeu P1 = new PlateauDeJeu();
         System.out.println(P1);
         
+        CelluleDeGrille essai = new CelluleDeGrille(J1); 
+        
     }
     
     
