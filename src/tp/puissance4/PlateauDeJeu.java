@@ -69,28 +69,37 @@ public class PlateauDeJeu {
     }
     
     public boolean etreGagnantePourCouleur(String couleur){
-        public boolean ligneGagnantepourCouleur(String couleur){ 
+    }
+
+    public boolean ligneGagnantepourCouleur(String couleur){ 
+            boolean rep_c = false;
             for (int i=0; i<=3;i++){
                 for (int j=0; j<=5;j++){
-                    
+                    if ((grille[i][j].lireCouleurDuJeton()==grille[i][j+1].lireCouleurDuJeton()) && grille[i][j].lireCouleurDuJeton()==grille[i][j+2].lireCouleurDuJeton() && grille[i][j].lireCouleurDuJeton()==grille[i][j+3].lireCouleurDuJeton()){
+                        return true;
+                    }                   
                 }
-            }
-            
-        }
+            }return rep_c;        
+    }
+
+    public boolean colonneGagnantePourCouleur(String couleur){
+        boolean rep_l = false ;
+        for (int i=0; i<=6;i++){
+                for (int j=0; j<=2;j++){
+                    if ((grille[i][j].lireCouleurDuJeton()==grille[i+1][j].lireCouleurDuJeton()) && grille[i][j].lireCouleurDuJeton()==grille[i+2][j].lireCouleurDuJeton() && grille[i][j].lireCouleurDuJeton()==grille[i+3][j].lireCouleurDuJeton()){
+                        return true;
+                    }                   
+                }
+            }return rep_l;   
+    }
+
+    public boolean diagonaleMontanteGagnantePourCouleur(String couleur){
         
-        public boolean colonneGagnantePourCouleur(String couleur){
-            
-        }
-        
-        public boolean diagonaleMontanteGagnantePourCouleur(String couleur){
-            
-        }
-        
-        public boolean diagonaleDesencanteGagnantePourCouleur(String couleur){
-            
-        }
     }
     
-    
-    
-}
+    public boolean diagonaleDesencanteGagnantePourCouleur(String couleur){
+    }
+
+
+
+}   
