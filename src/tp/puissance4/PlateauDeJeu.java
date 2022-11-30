@@ -54,8 +54,17 @@ public class PlateauDeJeu {
     //public viderGrille(String Joueur, String Joueur){  
     //}
     
-    //public afficherGrilleSurConsole(){  
-    //}
+    public String afficherGrilleSurConsole(){ 
+         for (int i = 0; i<=6 ; i++) {
+            for (int j = 0; j < 7; j++) {
+                 if (grille[i][j].presenceJeton() == false) {
+                    return ".";
+                } else {
+                    return grille[i][j].lireCouleurDuJeton();
+                }
+            }
+         }
+    }
     
     public Boolean presenceJeton(int x, int y){
         boolean pres = grille[x][y].presenceJeton();
@@ -98,7 +107,6 @@ public class PlateauDeJeu {
     
     //public boolean diagonaleDesencanteGagnantePourCouleur(String couleur){
     //}
-
 
 
 }   

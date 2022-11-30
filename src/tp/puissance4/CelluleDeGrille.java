@@ -11,12 +11,12 @@ package tp.puissance4;
 public class CelluleDeGrille {
     private jeton jetonCourant;  
 
-   public CelluleDeGrille(jeton jetonCourant) {
+    public CelluleDeGrille(jeton jetonCourant) {
         this.jetonCourant = jetonCourant;
-        jetonCourant = null;
+        //jetonCourant = null;
     }
    
-   public boolean presenceJeton(){
+    public boolean presenceJeton(){
        if (jetonCourant!=null){
            return true;
        }else{
@@ -24,13 +24,13 @@ public class CelluleDeGrille {
        }
     }
    
-   public jeton affecterJeton(jeton jet){
+    public jeton affecterJeton(jeton jet){
        jetonCourant = jet ;
        return jetonCourant;
    }
    
-   public String lireCouleurDuJeton(){
-   if (presenceJeton()==true){
+    public String lireCouleurDuJeton(){
+    if (presenceJeton()==true){
        return jetonCourant.lireCouleur() ;
    }else{
        return "vide";
@@ -38,12 +38,17 @@ public class CelluleDeGrille {
    }
 
     @Override
-    public  String toString() {
+    public String toString() {
       // return "CelluleDeGrille{" + "jetonCourant=" + jetonCourant + '}';
         
-      System.out.println(lireCouleurDuJeton());
-      if (presenceJeton()==false){
-        System.out.println(".");
+      if (this.presenceJeton()==false){
+        return ".";
+      }else{
+        if  (this.lireCouleurDuJeton()=="rouge") {
+            return "R";            
+        }else{
+            return "J";
+        }
       }
          
           

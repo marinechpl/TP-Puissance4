@@ -10,15 +10,15 @@ import java. util. ArrayList;
  */
 public class Joueur {
     private String nom; 
-    private String couleur;
-    private ArrayList <Jeton> reserveJetons;
+    private jeton couleur;
+    private ArrayList <jeton> reserveJetons = null;
   
     
-    public Joueur(String nom, String couleur, int reserveJetons) {
+    public Joueur(String nom) {
         this.nom = nom;
-        this.couleur = couleur;
-        this.reserveJetons = reserveJetons;
+        
     }
+    
     public String joueur(){
         nom= " "; 
         return nom;
@@ -29,11 +29,8 @@ public class Joueur {
     }
     
     public int nombreDeJetons(){
-    return length.reserveJetons();
+        return reserveJetons.size();
     }
-    
-    public  ajouterJeton(Jeton){
-    Jeton.reserveJeton;
     
 }
 

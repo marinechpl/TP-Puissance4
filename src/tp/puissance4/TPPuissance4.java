@@ -15,13 +15,15 @@ public class TPPuissance4 {
      */
     public static void main(String[] args) {
         
-        jeton J1 = new jeton ("JAUNE");
+        jeton J1 = new jeton ("rouge");
         System.out.println(J1);
         
-        PlateauDeJeu P1 = new PlateauDeJeu();
-        System.out.println(P1);
+        CelluleDeGrille cel = new CelluleDeGrille(null);
+        System.out.println(cel);
         
-        CelluleDeGrille essai = new CelluleDeGrille(J1); 
+        //PlateauDeJeu P1 = new PlateauDeJeu();
+        //System.out.println(P1);
+        
         
     }
     
