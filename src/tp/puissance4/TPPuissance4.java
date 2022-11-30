@@ -18,15 +18,12 @@ public class TPPuissance4 {
         jeton J1 = new jeton ("rouge");
         System.out.println(J1);
         
-        CelluleDeGrille cel = new CelluleDeGrille(null);
+        CelluleDeGrille cel = new CelluleDeGrille();
         System.out.println(cel);
         
-        //PlateauDeJeu P1 = new PlateauDeJeu();
-        //System.out.println(P1);
+        PlateauDeJeu P1 = new PlateauDeJeu();
+        System.out.println(P1);
         
         
     }
-    
-    
-    
 }

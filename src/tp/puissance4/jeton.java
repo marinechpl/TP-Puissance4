@@ -12,10 +12,18 @@ package tp.puissance4;
 public class jeton {
     String couleur ;
     
+    /** jeton
+     * constructeur : initialise la couleur du jeton 
+     * @param couleur
+     */
     public jeton(String couleur) {
         this.couleur = couleur;
     }
     
+    /** lireCouleur
+     * lit la couleur du jeton 
+     * @return la couleur
+     */
     public String lireCouleur(){ //lit la couleur
         return couleur ; 
     }
