@@ -25,10 +25,10 @@ public class TPPuissance4 {
         P1.ajouterJetonDansColonne(J2, 2);
         P1.ajouterJetonDansColonne(J1,3);
         P1.ajouterJetonDansColonne(J1,4);
+        P1.ajouterJetonDansColonne(J2,1);
         P1.ajouterJetonDansColonne(J1,1);
         P1.ajouterJetonDansColonne(J1,1);
-        P1.ajouterJetonDansColonne(J1,1);
-        boolean rep = P1.colonneGagnantePourCouleur("rouge");
+        boolean rep = P1.etreGagnantePourCouleur("rouge");
         
         System.out.println (rep);
         

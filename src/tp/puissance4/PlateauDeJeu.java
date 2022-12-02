@@ -114,8 +114,17 @@ public class PlateauDeJeu {
         return grille[x][y].lireCouleurDuJeton(); 
     }
     
-    //public boolean etreGagnantePourCouleur(String couleur){
-    //}
+    public boolean etreGagnantePourCouleur(String couleur){
+        if (ligneGagnantePourCouleur(couleur)==true 
+                || colonneGagnantePourCouleur(couleur)== true 
+                || diagonaleMontanteGagnantePourCouleur(couleur)== true 
+                || diagonaleDescendanteGagnantePourCouleur(couleur)== true){
+            return true; 
+        }else {
+            return false;
+        }
+        
+    }
 
     /** ligneGagnantePourCouleur 
      * @param couleur
