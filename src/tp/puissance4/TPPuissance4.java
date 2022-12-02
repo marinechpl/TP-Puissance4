@@ -22,7 +22,9 @@ public class TPPuissance4 {
         System.out.println(cel);
         
         PlateauDeJeu P1 = new PlateauDeJeu();
-        System.out.println(P1);
+        
+        P1.afficherGrilleSurConsole();
+        P1.ajouterJetonDansColonne(J1, 3);
         
         
     }

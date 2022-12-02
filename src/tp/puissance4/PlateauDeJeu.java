@@ -30,8 +30,8 @@ public class PlateauDeJeu {
      * @return indice de la ligne 
      */
     public int ajouterJetonDansColonne(jeton Jeton, int indice_c){
-        int indice_l=6;
-        for(int i=1; i<6; i++){
+        int indice_l=5;
+        for(int i=0; i<6; i++){
             if (grille[indice_l][indice_c].presenceJeton()==false){
                 return indice_l;     
             }else {
@@ -54,7 +54,7 @@ public class PlateauDeJeu {
     }
     
     /** grilleRemplie 
-     * savoir si la colonne est remplie ou non 
+     * savoir si la grille est remplie ou non 
      * @return vrai ou faux si colonne remplie ou non 
      */
     public boolean grilleRemplie(){
@@ -85,19 +85,10 @@ public class PlateauDeJeu {
      */
     public void afficherGrilleSurConsole(){ 
         // on commence par la ligne d'en haut : ligne 6 
-         for (int i = 6; i>0 ; i--) {
-            for (int j = 0; j < 7; j++) {
-                System.out.println(grille[i][j]);
-                 //if (grille[i][j].presenceJeton() == false) {
-                   // System.out.println (".");
-                //} else {
-                    //String couleur = grille[i][j].lireCouleurDuJeton();
-                    //if (couleur=="jaune"){
-                      //  System.out.println("J");
-                    //}else if (couleur=="rouge"){
-                      //  System.out.println("R");
-                  //  }
-                //}
+        for (int i=5; i>=0 ; i--) {
+            System.out.print("\n");
+            for (int j = 0; j < 7; j++){
+                System.out.print(grille[i][j]);
             }
          }
     }
