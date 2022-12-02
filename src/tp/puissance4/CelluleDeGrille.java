@@ -35,9 +35,9 @@ public class CelluleDeGrille {
      * @param jet
      * @return la nouvelle valeur du jeton
      */
-    public jeton affecterJeton(jeton jet){
-       jetonCourant = jet ;
-       return jetonCourant;
+    public jeton affecterJeton(jeton jeton){
+       this.jetonCourant = jeton;
+       return jeton;
     }
     
     /** lireCouleurDuJeton
@@ -69,12 +69,12 @@ public class CelluleDeGrille {
       // return "CelluleDeGrille{" + "jetonCourant=" + jetonCourant + '}';
         
       if (this.presenceJeton()==false){
-          return ".";
+          return " . ";
       }else{
-        if  (this.lireCouleurDuJeton()=="rouge") {
-            return "R";            
+        if  (this.jetonCourant.lireCouleur()=="rouge") {
+            return " R ";            
         }else{
-            return "J";
+            return " J ";
         }
       }   
       }  

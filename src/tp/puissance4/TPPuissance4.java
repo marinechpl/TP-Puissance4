@@ -16,15 +16,25 @@ public class TPPuissance4 {
     public static void main(String[] args) {
         
         jeton J1 = new jeton ("rouge");
-        System.out.println(J1);
-        
+        jeton J2 = new jeton ("jaune");
         CelluleDeGrille cel = new CelluleDeGrille();
-        System.out.println(cel);
         
         PlateauDeJeu P1 = new PlateauDeJeu();
         
+        P1.ajouterJetonDansColonne(J1,1);
+        P1.ajouterJetonDansColonne(J2, 2);
+        P1.ajouterJetonDansColonne(J1,3);
+        P1.ajouterJetonDansColonne(J1,4);
+        P1.ajouterJetonDansColonne(J1,1);
+        P1.ajouterJetonDansColonne(J1,1);
+        P1.ajouterJetonDansColonne(J1,1);
+        boolean rep = P1.colonneGagnantePourCouleur("rouge");
+        
+        System.out.println (rep);
+        
         P1.afficherGrilleSurConsole();
-        P1.ajouterJetonDansColonne(J1, 3);
+        
+        
         
         
     }

@@ -14,7 +14,7 @@ public class Partie {
     private Joueur joueurCourant;
     private PlateauDeJeu plateau;
 
-    public Partie(Joueur joueurCourant) {
+    public Partie(Joueur j1, Joueur j2) {
         this.joueurCourant = joueurCourant;
     }
     

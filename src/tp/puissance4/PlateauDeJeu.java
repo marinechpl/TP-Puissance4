@@ -30,12 +30,13 @@ public class PlateauDeJeu {
      * @return indice de la ligne 
      */
     public int ajouterJetonDansColonne(jeton Jeton, int indice_c){
-        int indice_l=5;
+        int indice_l=0;
         for(int i=0; i<6; i++){
-            if (grille[indice_l][indice_c].presenceJeton()==false){
-                return indice_l;     
+            if (grille[indice_l][indice_c-1].presenceJeton()==false){
+                grille[indice_l][indice_c-1].affecterJeton(Jeton);  
+                return indice_l;
             }else {
-                indice_l=indice_l-i;
+                indice_l=indice_l+1;
             }
         }return indice_l;
     }
@@ -125,11 +126,13 @@ public class PlateauDeJeu {
             boolean rep_c = false;
             for (int i=0; i<6;i++){
                 for (int j=0; j<4;j++){
-                    if ((grille[i][j].lireCouleurDuJeton()==grille[i][j+1].lireCouleurDuJeton()) 
-                            && grille[i][j].lireCouleurDuJeton()==grille[i][j+2].lireCouleurDuJeton() 
-                            && grille[i][j].lireCouleurDuJeton()==grille[i][j+3].lireCouleurDuJeton()){
-                        rep_c=true;
-                    }                   
+                    if (grille[i][j].lireCouleurDuJeton()==couleur){
+                        if ((grille[i][j].lireCouleurDuJeton()==grille[i][j+1].lireCouleurDuJeton()) 
+                                && grille[i][j+1].lireCouleurDuJeton()==grille[i][j+2].lireCouleurDuJeton() 
+                                && grille[i][j+2].lireCouleurDuJeton()==grille[i][j+3].lireCouleurDuJeton()){
+                            rep_c=true;
+                        }   
+                    }
                 }
             }return rep_c;        
     }
@@ -140,16 +143,18 @@ public class PlateauDeJeu {
      * @return vrai ou faux
      */
     public boolean colonneGagnantePourCouleur(String couleur){
-        boolean rep_l = false ;
+        boolean rep_l=false;
         for (int i=0; i<3;i++){
                 for (int j=0; j<7;j++){
-                    if ((grille[i][j].lireCouleurDuJeton()==grille[i+1][j].lireCouleurDuJeton()) 
-                            && grille[i][j].lireCouleurDuJeton()==grille[i+2][j].lireCouleurDuJeton() 
-                            && grille[i][j].lireCouleurDuJeton()==grille[i+3][j].lireCouleurDuJeton()){
+                    if (grille[i][j].lireCouleurDuJeton()==couleur){
+                        if ((grille[i][j].lireCouleurDuJeton()==grille[i+1][j].lireCouleurDuJeton()) 
+                                && grille[i+1][j].lireCouleurDuJeton()==grille[i+2][j].lireCouleurDuJeton() 
+                                && grille[i+2][j].lireCouleurDuJeton()==grille[i+3][j].lireCouleurDuJeton()){
                         rep_l= true;
-                    }                   
+                        }
+                    }              
                 }
-            }return rep_l;   
+            }return rep_l;
     }
 
     /** diagonaleMontanteGagnantepourCouleur 
@@ -161,10 +166,12 @@ public class PlateauDeJeu {
         boolean rep_dm=false;
         for (int i=0; i<3; i++){
             for (int j=0; j<4; j++){
-                if ((grille[i][j].lireCouleurDuJeton()==grille[i+1][j+1].lireCouleurDuJeton()) 
+                if (grille[i][j].lireCouleurDuJeton()==couleur){
+                    if ((grille[i][j].lireCouleurDuJeton()==grille[i+1][j+1].lireCouleurDuJeton()) 
                             && grille[i][j].lireCouleurDuJeton()==grille[i+2][j+2].lireCouleurDuJeton() 
                             && grille[i][j].lireCouleurDuJeton()==grille[i+3][j+3].lireCouleurDuJeton()){
                         rep_dm= true;
+                    }
                 }
             
             }
@@ -180,10 +187,12 @@ public class PlateauDeJeu {
         boolean rep_dd=false;
         for (int i=3; i<6; i++){
             for (int j=0; j<4; j++){
-                if ((grille[i][j].lireCouleurDuJeton()==grille[i-1][j+1].lireCouleurDuJeton()) 
+                if (grille[i][j].lireCouleurDuJeton()==couleur){
+                    if ((grille[i][j].lireCouleurDuJeton()==grille[i-1][j+1].lireCouleurDuJeton()) 
                             && grille[i][j].lireCouleurDuJeton()==grille[i-2][j+2].lireCouleurDuJeton() 
                             && grille[i][j].lireCouleurDuJeton()==grille[i-3][j+3].lireCouleurDuJeton()){
                         rep_dd= true;
+                    }
                 }
             
             }
