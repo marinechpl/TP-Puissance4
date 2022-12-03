@@ -72,13 +72,20 @@ public class PlateauDeJeu {
     }
     
 
-    //public viderGrille(String Joueur, String Joueur){  
-      //  for (int i=0; i<6; i++){
-        //    for (int j=0; j<7; j++){
-          //      grille[i][j].jetonCourant=null;
-            //}
-        //}
-    //}
+    public void viderGrille(Joueur j1, Joueur j2){  
+        for (int i=0; i<6; i++){
+            for (int j=0; j<7; j++){
+                if (grille[i][j].lireCouleurDuJeton()==j1.lireCouleur()){
+                    j1.ajouterJeton(grille[i][j].jetonCourant);
+                    grille[i][j].jetonCourant=null;
+                }else {
+                    j2.ajouterJeton(grille[i][j].jetonCourant);
+                    grille[i][j].jetonCourant=null;
+                }
+                
+            }
+        }
+    }
 
     
     /** acfficherGrilleSurConsole 
