@@ -9,7 +9,7 @@ package tp.puissance4;
  * @author Elisa
  */
 public class PlateauDeJeu {
-    CelluleDeGrille[][] grille = new CelluleDeGrille[6][7]; // cellule [0][0] = bas-gauche 
+    CelluleDeGrille[][] grille = new CelluleDeGrille[6][7];
 
     /** PlateauDeJeu()
      * Constructeur de la classe : création des 42 cellules vides 
@@ -208,7 +208,98 @@ public class PlateauDeJeu {
         }return rep_dd;
     }
 
+    /** tasserColonne 
+     * place les jetons dans la ligne la plus basse possible 
+     * @param ind_c 
+     */
+    //public void tasserColonne(int ind_c){
+        //for (int i=0; i<5; i++){
+            //if (grille[i][ind_c].presenceJeton()==false){
+                //grille[i][ind_c]=grille[i+1][ind_c];
+                //grille[i+1][ind_c].affecterJeton(null);  
+            //}
+        //}
+    //}
     
+    
+    
+    /** presenceTrouNoir
+     * regarde si un trou noir est present sur la case [x][y]
+     * @param x
+     * @param y
+     * @return vrai ou faux
+     */
+    public boolean presenceTrouNoir(int x, int y){
+        if (grille[x][y].presenceTrouNoir()==true){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    /** placerTrouNoir
+     * place un trou noir en x,y 
+     * @param x
+     * @param y 
+     */
+    public void placerTrouNoir(int x, int y){
+        grille[x][y].placerTrouNoir();
+    }
+    /** supprimerTrouNoir
+     * supprime le trou noir en x,y
+     * @param x
+     * @param y 
+     */
+    public void supprimerTrouNoir(int x, int y){
+        grille[x][y].supprimerTrouNoir();
+    }
 
-
+    /**presenceDesintegrateur
+     * regarde s'il y a un desintégrateur en x,y 
+     * @param x
+     * @param y
+     * @return vrai ou faux
+     */
+    public boolean presenceDesintegrateur(int x, int y){
+        if (grille[x][y].presenceDesintegrateur()==true){
+            return true;
+        }else {
+            return false;
+        }
+    }
+    /** placerDesintegrateur
+     * place un desintegrateur en x,y 
+     * @param x
+     * @param y 
+     */
+    public void placerDesintegrateur(int x, int y){
+        grille[x][y].placerDesintegrateur();
+    }
+    /** supprimerDesintegrateur
+     * supprime desintegrateur en x,y
+     * @param x
+     * @param y 
+     */
+    public void supprimerDesintegrateur(int x, int y){
+        grille[x][y].supprimerDesintegrateur();
+    }
+    /** supprimerJeton 
+     * supprime le jeton en x,y 
+     * @param x
+     * @param y 
+     */
+    public void supprimerJeton(int x , int y){
+        grille[x][y].supprimerJeton();
+    }
+    
+    /** recupererJeton 
+     * recupere le jeton en x,y 
+     * @param x
+     * @param y
+     * @return le référence du jeton retourné 
+     */
+    public jeton recupererJeton(int x, int y){
+        return grille[x][y].recupererJeton();
+    }
+    
+    
 }  

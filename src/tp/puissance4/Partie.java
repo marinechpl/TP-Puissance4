@@ -15,7 +15,8 @@ public class Partie {
     private PlateauDeJeu plateau;
 
     public Partie(Joueur j1, Joueur j2) {
-        this.joueurCourant = joueurCourant;
+        this.listeJoueurs[0]=j1;
+        this.listeJoueurs[1]=j2;
     }
     
     /**attribuerCouleurAuxJoueurs

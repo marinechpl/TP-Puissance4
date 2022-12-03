@@ -12,11 +12,12 @@ public class Joueur {
     private String nom; 
     private String couleur;
     private ArrayList <jeton> reserveJetons = null;
+    private int nombreDesintegrateur ; 
   
     
      /** Joueur
      * constructeur : initialise le nom du joueur
-     * @param couleur
+     * @param nom
      */
     public Joueur(String nom) {
         this.nom = nom;    
@@ -35,7 +36,7 @@ public class Joueur {
      * @return la couleur du joueur 
      */
     public String lireCouleur(){
-        return couleur;
+        return this.couleur;
     }
     
      /** nombreDeJetons
@@ -43,7 +44,7 @@ public class Joueur {
      * @return le nombre de jetons disponibles 
      */
     public int nombreDeJetons(){
-        return reserveJetons.size();
+        return this.reserveJetons.size();
     }
     
      /** ajouterJeton
@@ -51,7 +52,7 @@ public class Joueur {
      * @param jet
      */
     public void ajouterJeton(jeton jet){
-        reserveJetons.add(jet);
+        this.reserveJetons.add(jet);
     }
     
     /** jouerJeton
@@ -59,8 +60,19 @@ public class Joueur {
      * @return lien vers le jeton enlevé 
      */
     public jeton jouerJeton(){
-        jeton jet = reserveJetons.remove(0);
+        jeton jet = this.reserveJetons.remove(0);
         return jet;
+    }
+    
+    /** obternirDesintegrateur 
+     * 
+     */
+    public void obtenirDesintegrateur(){
+        this.nombreDesintegrateur+=1;
+    }
+    
+    public void utiliserDesintegrateur(){
+        this.nombreDesintegrateur-=1;
     }
 }
 

@@ -9,7 +9,7 @@ package tp.puissance4;
  * @author Elisa
  */
 public class CelluleDeGrille {
-    private jeton jetonCourant;  
+    jeton jetonCourant;  
     private boolean avoirTrouNoir;
     private boolean avoirDesintegrateur;
 
@@ -34,7 +34,7 @@ public class CelluleDeGrille {
     
     /** affecterJeton
      * affecte à la cellule un jeton
-     * @param jet
+     * @param jeton
      * @return la nouvelle valeur du jeton
      */
     public jeton affecterJeton(jeton jeton){
