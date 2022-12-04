@@ -15,30 +15,28 @@ public class TPPuissance4 {
      */
     public static void main(String[] args) {
         
-        jeton J1 = new jeton ("rouge");
-        jeton J2 = new jeton ("jaune");
-        CelluleDeGrille cel = new CelluleDeGrille();
+        //Joueur J1 = new Joueur();
+        //jeton J2 = new jeton ("jaune");
+        //CelluleDeGrille cel = new CelluleDeGrille();
+                
+        //P1.ajouterJetonDansColonne(J1,1);
+        //P1.ajouterJetonDansColonne(J2, 2);
+        //P1.ajouterJetonDansColonne(J1,3);
+       // P1.ajouterJetonDansColonne(J1,4);Elisa
+        //P1.ajouterJetonDansColonne(J2,1);
+        //P1.ajouterJetonDansColonne(J1,1);
+        //P1.ajouterJetonDansColonne(J1,1);
+        //P1.ajouterJetonDansColonne(J1,1);
+        //P1.ajouterJetonDansColonne(J1,1);
         
-        PlateauDeJeu P1 = new PlateauDeJeu();
+        //P1.supprimerJeton(3, 0);
+        //boolean rep = P1.etreGagnantePourCouleur("rouge");
         
-        P1.ajouterJetonDansColonne(J1,1);
-        P1.ajouterJetonDansColonne(J2, 2);
-        P1.ajouterJetonDansColonne(J1,3);
-        P1.ajouterJetonDansColonne(J1,4);
-        P1.ajouterJetonDansColonne(J2,1);
-        P1.ajouterJetonDansColonne(J1,1);
-        P1.ajouterJetonDansColonne(J1,1);
-        P1.ajouterJetonDansColonne(J1,1);
-        P1.ajouterJetonDansColonne(J1,1);
+        //System.out.println (rep);
         
-        P1.supprimerJeton(3, 0);
-        boolean rep = P1.etreGagnantePourCouleur("rouge");
-        
-        System.out.println (rep);
-        
-        P1.afficherGrilleSurConsole();
-        
-        
+        //P1.afficherGrilleSurConsole();
+        Partie P1 = new Partie(); 
+        P1.lancerPartie();
         
         
     }

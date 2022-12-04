@@ -9,10 +9,10 @@ import java. util. ArrayList;
  * @author Elisa
  */
 public class Joueur {
-    private String nom; 
-    private String couleur;
-    private ArrayList <jeton> reserveJetons = null;
-    private int nombreDesintegrateur ; 
+    String nom; 
+    String couleur;
+    private ArrayList <jeton> reserveJetons = new ArrayList() ;
+    private int nombreDesintegrateur; 
   
     
      /** Joueur
@@ -20,7 +20,8 @@ public class Joueur {
      * @param nom
      */
     public Joueur(String nom) {
-        this.nom = nom;    
+        this.nom = nom; 
+        this.nombreDesintegrateur=0;
     }
     
      /** affecterCouleur

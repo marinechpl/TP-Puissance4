@@ -145,18 +145,23 @@ public class CelluleDeGrille {
 
     @Override
     public String toString() {
-      // return "CelluleDeGrille{" + "jetonCourant=" + jetonCourant + '}';
         
-      if (this.presenceJeton()==false){
-          return " . ";
-      }else{
-        if  (this.jetonCourant.lireCouleur()=="rouge") {
+      if (this.presenceJeton()==true){
+          if (this.jetonCourant.lireCouleur()=="rouge") {
             return " R ";            
         }else{
             return " J ";
         }
-      }   
-      }  
+        }else if (this.presenceDesintegrateur()==true){
+            return " D ";
+        }
+        else if (this.presenceTrouNoir()==true){
+            return " T ";
+        }else {
+            return " . ";
+        }
+        
+      }
     
 
 }
