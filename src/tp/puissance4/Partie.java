@@ -63,27 +63,38 @@ public class Partie {
     
     
     public void placerTrousNoirsEtDesintegrateurs (){
-        int compt = 0;
         Random r = new Random();
-        for (int i = 0; i < 5; i++) {
-            int ligne_t = r.nextInt(6);
-            int colonne_t= r.nextInt(7);
-            if (compt < 2) {
-                if (!plateau.grille[ligne_t][colonne_t].placerDesintegrateur()) {
-                    compt--;
-                } 
-                //compt = compt +1;
-                if (!plateau.grille[ligne_t][colonne_t].placerTrouNoir()){
-                    i--;
+        int compt_d = 5;
+        int compt_t=5;
+        
+        while (compt_d!=0 && compt_t!=0){
+            for (int i=0; i<3; i++){
+            
+                int ligne = r.nextInt(6);
+                int colonne =r.nextInt(7);
+                plateau.placerTrouNoir(ligne, colonne);
+                compt_t-=1;
+                plateau.placerDesintegrateur(ligne, colonne);
+                compt_d-=1;
+            
+            }
+            for (int i=0; i<2;i++){
+                int ligne = r.nextInt(6);
+                int colonne =r.nextInt(7);
+                if (plateau.presenceDesintegrateur(ligne, colonne)==false && plateau.presenceTrouNoir(ligne, colonne)==false){
+                    plateau.placerTrouNoir(ligne, colonne);
+                    compt_t-=1;
+
                 }
             }
-            for (int j = 0; j < 3; j++) {
-                int ligne_désin = r.nextInt(6);
-                int colonne_désin = r.nextInt(7);
-                if (!plateau.grille[ligne_désin][colonne_désin].placerDesintegrateur() && plateau.grille[ligne_désin][colonne_désin].presenceTrouNoir()) {
-                    j--;
+            for (int i=0; i<2;i++){
+                int ligne = r.nextInt(6);
+                int colonne =r.nextInt(7);
+                if (plateau.presenceDesintegrateur(ligne, colonne)==false && plateau.presenceTrouNoir(ligne, colonne)==false){
+                    plateau.placerDesintegrateur(ligne, colonne);
+                    compt_d-=1;
                 }
-        } 
+            }
         }
     }
     
@@ -131,6 +142,7 @@ public class Partie {
         placerTrousNoirsEtDesintegrateurs ();
         
         plateau.afficherGrilleSurConsole();
+        
         
         
     }
