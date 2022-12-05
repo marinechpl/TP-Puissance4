@@ -163,6 +163,7 @@ public class Partie {
     public void jouerJeton(){
         Scanner sc = new Scanner(System.in);
         boolean resultatAction;
+        
         System.out.println("Veuillez saisir une colonne :");
         int colonne = sc.nextInt();
         while (colonne > 6 || colonne < 0) {
@@ -176,7 +177,11 @@ public class Partie {
             resultatAction = plateau.colonneRemplie(colonne);
                 
         }
-        plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne);
+        int l = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne);
+        if (plateau.presenceDesintegrateur(l, colonne)==true){
+           joueurCourant.obtenirDesintegrateur();
+        }
+        
     }
     
     public boolean recupererJeton (){
@@ -231,6 +236,7 @@ public class Partie {
             plateau.supprimerJeton(ligne, colonne);
             plateau.tasserColonne(colonne);
             plateau.placerDesintegrateur(ligne, colonne);
+            joueurCourant.utiliserDesintegrateur();
             return true;
 
         }
