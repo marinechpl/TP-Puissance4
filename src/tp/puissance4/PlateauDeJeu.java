@@ -219,14 +219,14 @@ public class PlateauDeJeu {
      * place les jetons dans la ligne la plus basse possible 
      * @param ind_c 
      */
-    //public void tasserColonne(int ind_c){
-        //for (int i=0; i<5; i++){
-            //if (grille[i][ind_c].presenceJeton()==false){
-                //grille[i][ind_c]=grille[i+1][ind_c];
+    public void tasserColonne(int ind_c){
+        for (int i=0; i<5; i++){
+            if (grille[i][ind_c].presenceJeton()==false){
+                grille[i][ind_c]=grille[i+1][ind_c];
                 //grille[i+1][ind_c].affecterJeton(null);  
-            //}
-        //}
-    //}
+            }
+        }
+    }
     
     
     

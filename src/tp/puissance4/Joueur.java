@@ -65,6 +65,10 @@ public class Joueur {
         return jet;
     }
     
+    public int nbDesintegrateur(){
+        return this.nombreDesintegrateur;
+    }
+    
     /** obternirDesintegrateur 
      * 
      */
@@ -75,7 +79,15 @@ public class Joueur {
     public void utiliserDesintegrateur(){
         this.nombreDesintegrateur-=1;
     }
+
+    @Override
+    public String toString() {
+        return  nom ;
+    }
+    
+    
 }
+
 
 
 

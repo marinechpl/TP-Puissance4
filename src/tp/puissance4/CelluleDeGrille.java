@@ -152,14 +152,16 @@ public class CelluleDeGrille {
         }else{
             return " J ";
         }
-        }else if (this.presenceDesintegrateur()==true && this.presenceTrouNoir()==true){
+        }
+        else if (this.presenceTrouNoir()==true && this.presenceDesintegrateur()==true){
             return " J ";
+        }
+        else if (this.presenceTrouNoir()==true){
+            return " T ";
+            
         }
         else if (this.presenceDesintegrateur()==true){
             return " D ";
-            
-        }else if (this.presenceTrouNoir()==true){
-            return " T ";
         }else {
             return " . ";
         }

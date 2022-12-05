@@ -33,9 +33,7 @@ public class TPPuissance4 {
         //boolean rep = P1.etreGagnantePourCouleur("rouge");
         
         //System.out.println (rep);
-        
-        //P1.afficherGrilleSurConsole();
-        Partie P1 = new Partie(); 
+        Partie P1 = new Partie();
         P1.lancerPartie();
         
         
