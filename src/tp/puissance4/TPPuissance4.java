@@ -35,7 +35,5 @@ public class TPPuissance4 {
         //System.out.println (rep);
         Partie P1 = new Partie();
         P1.lancerPartie();
-        
-        
     }
 }

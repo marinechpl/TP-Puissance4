@@ -71,13 +71,15 @@ public class Partie {
             for (int i=0; i<3; i++){
                 int ligne = r.nextInt(6);
                 int colonne =r.nextInt(7);
-                while (plateau.presenceDesintegrateur(ligne, colonne)!= false  || plateau.presenceTrouNoir(ligne, colonne)!=false){
-                    ligne = r.nextInt(6);
-                    colonne =r.nextInt(7);
+                if (plateau.presenceDesintegrateur(ligne, colonne)== false  || plateau.presenceTrouNoir(ligne, colonne)==false){
                     plateau.placerTrouNoir(ligne, colonne);
                     compt_t-=1;
                     plateau.placerDesintegrateur(ligne, colonne);
                     compt_d-=1;
+                }else {
+                    compt_d=compt_d;
+                    compt_t=compt_t;
+                    
                 }
             }
         
