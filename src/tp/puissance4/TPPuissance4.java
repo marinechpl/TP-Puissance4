@@ -13,7 +13,7 @@ public class TPPuissance4 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void mpain(String[] args) {
         Partie P1 = new Partie();
         P1.lancerPartie();
     }
