@@ -133,7 +133,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_grille.setLayout(new java.awt.GridLayout(6, 7));
         getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 672, 576));
 
-        panneau_creation_partie.setBackground(new java.awt.Color(204, 255, 255));
+        panneau_creation_partie.setBackground(new java.awt.Color(0, 153, 153));
         panneau_creation_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nom_joueur1.setText("Nom Joueur 1 :");
@@ -166,47 +166,60 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
         getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 320, 140));
 
-        panneau_info_joueur.setBackground(new java.awt.Color(204, 255, 255));
+        panneau_info_joueur.setBackground(new java.awt.Color(0, 153, 153));
+        panneau_info_joueur.setForeground(new java.awt.Color(255, 255, 255));
         panneau_info_joueur.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel2.setText("Joueur 1 : ");
-        panneau_info_joueur.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        panneau_info_joueur.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel3.setText("Couleur :");
-        panneau_info_joueur.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        panneau_info_joueur.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel4.setText("Désintégrateurs : ");
-        panneau_info_joueur.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        panneau_info_joueur.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
+        lb_J1_nom.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         lb_J1_nom.setText("Nomjoueur1");
-        panneau_info_joueur.add(lb_J1_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        panneau_info_joueur.add(lb_J1_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
+        jl_J1_couleur.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jl_J1_couleur.setText("CouleurJoeur1");
-        panneau_info_joueur.add(jl_J1_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+        panneau_info_joueur.add(jl_J1_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
 
+        lb_J1_nbDesint.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         lb_J1_nbDesint.setText("nbdesintJ1");
-        panneau_info_joueur.add(lb_J1_nbDesint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
+        panneau_info_joueur.add(lb_J1_nbDesint, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
 
-        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
-        panneau_info_joueur.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 280, 20));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        panneau_info_joueur.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 280, 20));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel5.setText("Joueur 2 :");
-        panneau_info_joueur.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        panneau_info_joueur.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel6.setText("Couleur :");
-        panneau_info_joueur.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        panneau_info_joueur.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel7.setText("Désintégrateurs : ");
-        panneau_info_joueur.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        panneau_info_joueur.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
+        lb_J2_nom.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         lb_J2_nom.setText("Nomjoueur2");
-        panneau_info_joueur.add(lb_J2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
+        panneau_info_joueur.add(lb_J2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
+        lb_J2_couleur.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         lb_J2_couleur.setText("CouleurJoueur2");
-        panneau_info_joueur.add(lb_J2_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        panneau_info_joueur.add(lb_J2_couleur, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
+        lb_J2_nbdesint.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         lb_J2_nbdesint.setText("nbDesintJ2");
-        panneau_info_joueur.add(lb_J2_nbdesint, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+        panneau_info_joueur.add(lb_J2_nbdesint, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Informations joueurs");
@@ -214,7 +227,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
         getContentPane().add(panneau_info_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 210, 320, 270));
 
-        panneau_info_partie.setBackground(new java.awt.Color(204, 255, 255));
+        panneau_info_partie.setBackground(new java.awt.Color(0, 153, 153));
         panneau_info_partie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
