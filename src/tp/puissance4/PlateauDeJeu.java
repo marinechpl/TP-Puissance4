@@ -9,321 +9,352 @@ package tp.puissance4;
  * @author Elisa
  */
 public class PlateauDeJeu {
+
     CelluleDeGrille[][] grille = new CelluleDeGrille[6][7];
 
-    /** PlateauDeJeu()
-     * Constructeur de la classe : création des 42 cellules vides 
+    /**
+     * PlateauDeJeu() Constructeur de la classe : création des 42 cellules vides
      */
-    public PlateauDeJeu() { 
-        for (int i=0; i<6;i++){
-            for (int j=0; j<7; j++){
+    public PlateauDeJeu() {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
                 grille[i][j] = new CelluleDeGrille();
-            }            
-        }   
-    }
-    
-    /** ajouterJetonDansColonne 
-     * @param Jeton
-     * @param indice_c
-     * ajoute le jeton en paramètre dans la case vide la plus basse de la 
-     * colonne en paramètre 
-     * @return indice de la ligne 
-     */
-    public int ajouterJetonDansColonne(Joueur joueurCourant, int indice_c){
-        int indice_l=0;
-        for(int i=0; i<6; i++){
-            if (grille[indice_l][indice_c].presenceJeton()==false){
-                grille[indice_l][indice_c].affecterJeton(joueurCourant.jouerJeton());  
-                return indice_l;
-            }if (grille[indice_l][indice_c].presenceDesintegrateur()==true){
-                grille[indice_l][indice_c].supprimerDesintegrateur();
-                joueurCourant.obtenirDesintegrateur();
-            }if (grille[indice_l][indice_c].presenceTrouNoir()==true){
-                grille[indice_l][indice_c].activerTrouNoir();
-                grille[indice_l][indice_c].supprimerTrouNoir();
-            }else {
-                indice_l=indice_l+1;
             }
-            
-            
-        }return indice_l;
+        }
     }
-    
-    
-    /** colonneRemplie 
-     * @param ind_c
-     * savoir si la colonne est remplie ou non 
-     * @return vrai ou faux si colonne remplie ou non 
+
+    /**
+     * ajouterJetonDansColonne
+     *
+     * @param Jeton
+     * @param indice_c ajoute le jeton en paramètre dans la case vide la plus
+     * basse de la colonne en paramètre
+     * @return indice de la ligne
      */
-    public boolean colonneRemplie(int ind_c){
-        for (int i= 0; i<6; i++){
-            if (grille[i][ind_c].presenceJeton()==false){
+    public int ajouterJetonDansColonne(Joueur joueurCourant, int indice_c) {
+        int indice_l = 0;
+        for (int i = 0; i < 6; i++) {
+            if (grille[indice_l][indice_c].presenceJeton() == false) {
+                // on place notre jeton
+                grille[indice_l][indice_c].affecterJeton(joueurCourant.jouerJeton());
+
+                if (grille[indice_l][indice_c].presenceDesintegrateur() == true) {
+                    grille[indice_l][indice_c].supprimerDesintegrateur();
+                    joueurCourant.obtenirDesintegrateur();
+                }
+                if (grille[indice_l][indice_c].presenceTrouNoir() == true) {
+                    grille[indice_l][indice_c].activerTrouNoir();
+                    grille[indice_l][indice_c].supprimerTrouNoir();
+                }
+                return indice_l;
+            } else {
+                indice_l = indice_l + 1;
+            }
+
+        }
+        return indice_l;
+    }
+
+    /**
+     * colonneRemplie
+     *
+     * @param ind_c savoir si la colonne est remplie ou non
+     * @return vrai ou faux si colonne remplie ou non
+     */
+    public boolean colonneRemplie(int ind_c) {
+        for (int i = 0; i < 6; i++) {
+            if (grille[i][ind_c].presenceJeton() == false) {
                 return false;
             }
-        }return true;
+        }
+        return true;
     }
-    
-    /** grilleRemplie 
-     * savoir si la grille est remplie ou non 
-     * @return vrai ou faux si colonne remplie ou non 
+
+    /**
+     * grilleRemplie savoir si la grille est remplie ou non
+     *
+     * @return vrai ou faux si colonne remplie ou non
      */
-    public boolean grilleRemplie(){
-        boolean rep = false ;
-        for (int i=0; i<6; i++){
-            for (int j=0; j<7;j++){
-                if (grille[i][j].presenceJeton()==false){
-                    rep=false;
+    public boolean grilleRemplie() {
+        boolean rep = false;
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (grille[i][j].presenceJeton() == false) {
+                    rep = false;
                 } else {
-                    rep=true;
+                    rep = true;
                 }
             }
-        } return rep ;
+        }
+        return rep;
     }
-    
 
-    public void viderGrille(Joueur j1, Joueur j2){  
-        for (int i=0; i<6; i++){
-            for (int j=0; j<7; j++){
-                if (grille[i][j].lireCouleurDuJeton()==j1.lireCouleur()){
+    public void viderGrille(Joueur j1, Joueur j2) {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (grille[i][j].lireCouleurDuJeton() == j1.lireCouleur()) {
                     j1.ajouterJeton(grille[i][j].jetonCourant);
-                    grille[i][j].jetonCourant=null;
-                }else {
+                    grille[i][j].jetonCourant = null;
+                } else {
                     j2.ajouterJeton(grille[i][j].jetonCourant);
-                    grille[i][j].jetonCourant=null;
+                    grille[i][j].jetonCourant = null;
                 }
-                
+
             }
         }
     }
 
-    
-    /** acfficherGrilleSurConsole 
-     * va permettre d'afficher la grille complete sur la console 
+    /**
+     * acfficherGrilleSurConsole va permettre d'afficher la grille complete sur
+     * la console
      */
-    public void afficherGrilleSurConsole(){ 
+    public void afficherGrilleSurConsole() {
         // on commence par la ligne d'en haut : ligne 6 
-        for (int i=5; i>=0 ; i--) {
+        for (int i = 5; i >= 0; i--) {
             System.out.print("\n");
-            for (int j = 0; j < 7; j++){
+            for (int j = 0; j < 7; j++) {
                 System.out.print(grille[i][j]);
             }
-         }
+        }
     }
-    
-    /** presenceJeton 
+
+    /**
+     * presenceJeton
+     *
      * @param x
-     * @param y
-     * regarde si un jeton est présent dans la cellule des coord x,y
+     * @param y regarde si un jeton est présent dans la cellule des coord x,y
      * @return vrai ou faux
      */
-    public Boolean presenceJeton(int x, int y){
+    public Boolean presenceJeton(int x, int y) {
         return grille[x][y].presenceJeton();
     }
-    
-    /** lireCouleurJeton 
+
+    /**
+     * lireCouleurJeton
+     *
      * @param x
-     * @param y
-     * regarde la couleur du jeton dans la cellule des coord x,y
+     * @param y regarde la couleur du jeton dans la cellule des coord x,y
      * @return vrai ou faux
      */
-    public String lireCouleurJeton(int x, int y){
-        return grille[x][y].lireCouleurDuJeton(); 
+    public String lireCouleurJeton(int x, int y) {
+        return grille[x][y].lireCouleurDuJeton();
     }
-    
-    public boolean etreGagnantePourCouleur(String couleur){
-        if (ligneGagnantePourCouleur(couleur)==true 
-                || colonneGagnantePourCouleur(couleur)== true 
-                || diagonaleMontanteGagnantePourCouleur(couleur)== true 
-                || diagonaleDescendanteGagnantePourCouleur(couleur)== true){
-            return true; 
-        }else {
+
+    public boolean etreGagnantePourCouleur(String couleur) {
+        if (ligneGagnantePourCouleur(couleur) == true
+                || colonneGagnantePourCouleur(couleur) == true
+                || diagonaleMontanteGagnantePourCouleur(couleur) == true
+                || diagonaleDescendanteGagnantePourCouleur(couleur) == true) {
+            return true;
+        } else {
             return false;
         }
-        
+
     }
 
-    /** ligneGagnantePourCouleur 
-     * @param couleur
-     * regarde si la ligne est gagnante 
+    /**
+     * ligneGagnantePourCouleur
+     *
+     * @param couleur regarde si la ligne est gagnante
      * @return vrai ou faux
      */
-    public boolean ligneGagnantePourCouleur(String couleur){ 
-            boolean rep_c = false;
-            for (int i=0; i<6;i++){
-                for (int j=0; j<4;j++){
-                    if (grille[i][j].lireCouleurDuJeton()==couleur){
-                        if ((grille[i][j].lireCouleurDuJeton()==grille[i][j+1].lireCouleurDuJeton()) 
-                                && grille[i][j+1].lireCouleurDuJeton()==grille[i][j+2].lireCouleurDuJeton() 
-                                && grille[i][j+2].lireCouleurDuJeton()==grille[i][j+3].lireCouleurDuJeton()){
-                            rep_c=true;
-                        }   
+    public boolean ligneGagnantePourCouleur(String couleur) {
+        boolean rep_c = false;
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (grille[i][j].lireCouleurDuJeton() == couleur) {
+                    if ((grille[i][j].lireCouleurDuJeton() == grille[i][j + 1].lireCouleurDuJeton())
+                            && grille[i][j + 1].lireCouleurDuJeton() == grille[i][j + 2].lireCouleurDuJeton()
+                            && grille[i][j + 2].lireCouleurDuJeton() == grille[i][j + 3].lireCouleurDuJeton()) {
+                        rep_c = true;
                     }
                 }
-            }return rep_c;        
+            }
+        }
+        return rep_c;
     }
 
-    /** colonneGagnantepourCouleur 
-     * @param couleur
-     * regarde si la colonne est gagnante 
+    /**
+     * colonneGagnantepourCouleur
+     *
+     * @param couleur regarde si la colonne est gagnante
      * @return vrai ou faux
      */
-    public boolean colonneGagnantePourCouleur(String couleur){
-        boolean rep_l=false;
-        for (int i=0; i<3;i++){
-                for (int j=0; j<7;j++){
-                    if (grille[i][j].lireCouleurDuJeton()==couleur){
-                        if ((grille[i][j].lireCouleurDuJeton()==grille[i+1][j].lireCouleurDuJeton()) 
-                                && grille[i+1][j].lireCouleurDuJeton()==grille[i+2][j].lireCouleurDuJeton() 
-                                && grille[i+2][j].lireCouleurDuJeton()==grille[i+3][j].lireCouleurDuJeton()){
-                        rep_l= true;
-                        }
-                    }              
-                }
-            }return rep_l;
-    }
-
-    /** diagonaleMontanteGagnantepourCouleur 
-     * @param couleur
-     * regarde si la diago montante est gagnante 
-     * @return vrai ou faux
-     */
-    public boolean diagonaleMontanteGagnantePourCouleur(String couleur){
-        boolean rep_dm=false;
-        for (int i=0; i<3; i++){
-            for (int j=0; j<4; j++){
-                if (grille[i][j].lireCouleurDuJeton()==couleur){
-                    if ((grille[i][j].lireCouleurDuJeton()==grille[i+1][j+1].lireCouleurDuJeton()) 
-                            && grille[i][j].lireCouleurDuJeton()==grille[i+2][j+2].lireCouleurDuJeton() 
-                            && grille[i][j].lireCouleurDuJeton()==grille[i+3][j+3].lireCouleurDuJeton()){
-                        rep_dm= true;
+    public boolean colonneGagnantePourCouleur(String couleur) {
+        boolean rep_l = false;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (grille[i][j].lireCouleurDuJeton() == couleur) {
+                    if ((grille[i][j].lireCouleurDuJeton() == grille[i + 1][j].lireCouleurDuJeton())
+                            && grille[i + 1][j].lireCouleurDuJeton() == grille[i + 2][j].lireCouleurDuJeton()
+                            && grille[i + 2][j].lireCouleurDuJeton() == grille[i + 3][j].lireCouleurDuJeton()) {
+                        rep_l = true;
                     }
                 }
-            
             }
-        }return rep_dm;
-    }
-    
-    /** diagonaleDescendanteGagnantepourCouleur 
-     * @param couleur
-     * regarde si la diagonale descendante est gagnante 
-     * @return vrai ou faux
-     */
-    public boolean diagonaleDescendanteGagnantePourCouleur(String couleur){
-        boolean rep_dd=false;
-        for (int i=3; i<6; i++){
-            for (int j=0; j<4; j++){
-                if (grille[i][j].lireCouleurDuJeton()==couleur){
-                    if ((grille[i][j].lireCouleurDuJeton()==grille[i-1][j+1].lireCouleurDuJeton()) 
-                            && grille[i][j].lireCouleurDuJeton()==grille[i-2][j+2].lireCouleurDuJeton() 
-                            && grille[i][j].lireCouleurDuJeton()==grille[i-3][j+3].lireCouleurDuJeton()){
-                        rep_dd= true;
-                    }
-                }
-            
-            }
-        }return rep_dd;
+        }
+        return rep_l;
     }
 
-    /** tasserColonne 
-     * place les jetons dans la ligne la plus basse possible 
-     * @param ind_c 
+    /**
+     * diagonaleMontanteGagnantepourCouleur
+     *
+     * @param couleur regarde si la diago montante est gagnante
+     * @return vrai ou faux
      */
-    public void tasserColonne(int ind_c){
-        for (int i=0; i<6; i++){
-            if (i==5){
-                grille[i][ind_c].jetonCourant=null;
-            }else {
-            if (grille[i][ind_c].jetonCourant==null){
-                grille[i][ind_c].jetonCourant=grille[i+1][ind_c].jetonCourant;
-                grille[i+1][ind_c].jetonCourant=null;  
+    public boolean diagonaleMontanteGagnantePourCouleur(String couleur) {
+        boolean rep_dm = false;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (grille[i][j].lireCouleurDuJeton() == couleur) {
+                    if ((grille[i][j].lireCouleurDuJeton() == grille[i + 1][j + 1].lireCouleurDuJeton())
+                            && grille[i][j].lireCouleurDuJeton() == grille[i + 2][j + 2].lireCouleurDuJeton()
+                            && grille[i][j].lireCouleurDuJeton() == grille[i + 3][j + 3].lireCouleurDuJeton()) {
+                        rep_dm = true;
+                    }
+                }
+
             }
+        }
+        return rep_dm;
+    }
+
+    /**
+     * diagonaleDescendanteGagnantepourCouleur
+     *
+     * @param couleur regarde si la diagonale descendante est gagnante
+     * @return vrai ou faux
+     */
+    public boolean diagonaleDescendanteGagnantePourCouleur(String couleur) {
+        boolean rep_dd = false;
+        for (int i = 3; i < 6; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (grille[i][j].lireCouleurDuJeton() == couleur) {
+                    if ((grille[i][j].lireCouleurDuJeton() == grille[i - 1][j + 1].lireCouleurDuJeton())
+                            && grille[i][j].lireCouleurDuJeton() == grille[i - 2][j + 2].lireCouleurDuJeton()
+                            && grille[i][j].lireCouleurDuJeton() == grille[i - 3][j + 3].lireCouleurDuJeton()) {
+                        rep_dd = true;
+                    }
+                }
+
+            }
+        }
+        return rep_dd;
+    }
+
+    /**
+     * tasserColonne place les jetons dans la ligne la plus basse possible
+     *
+     * @param ind_c
+     */
+    public void tasserColonne(int ind_c) {
+        for (int i = 0; i < 6; i++) {
+            if (i == 5) {
+                grille[i][ind_c].jetonCourant = null;
+            } else {
+                if (grille[i][ind_c].jetonCourant == null) {
+                    grille[i][ind_c].jetonCourant = grille[i + 1][ind_c].jetonCourant;
+                    grille[i + 1][ind_c].jetonCourant = null;
+                }
             }
         }
     }
-    public void tasserGrille(){
-        for (int i=0; i<7; i++){
+
+    public void tasserGrille() {
+        for (int i = 0; i < 7; i++) {
             tasserColonne(i);
         }
     }
-    
-    
-    /** presenceTrouNoir
-     * regarde si un trou noir est present sur la case [x][y]
+
+    /**
+     * presenceTrouNoir regarde si un trou noir est present sur la case [x][y]
+     *
      * @param x
      * @param y
      * @return vrai ou faux
      */
-    public boolean presenceTrouNoir(int x, int y){
-        if (grille[x][y].presenceTrouNoir()==true){
+    public boolean presenceTrouNoir(int x, int y) {
+        if (grille[x][y].presenceTrouNoir() == true) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
-    /** placerTrouNoir
-     * place un trou noir en x,y 
+
+    /**
+     * placerTrouNoir place un trou noir en x,y
+     *
      * @param x
-     * @param y 
+     * @param y
      */
-    public void placerTrouNoir(int x, int y){
+    public void placerTrouNoir(int x, int y) {
         grille[x][y].placerTrouNoir();
     }
-    /** supprimerTrouNoir
-     * supprime le trou noir en x,y
+
+    /**
+     * supprimerTrouNoir supprime le trou noir en x,y
+     *
      * @param x
-     * @param y 
+     * @param y
      */
-    public void supprimerTrouNoir(int x, int y){
+    public void supprimerTrouNoir(int x, int y) {
         grille[x][y].supprimerTrouNoir();
     }
 
-    /**presenceDesintegrateur
-     * regarde s'il y a un desintégrateur en x,y 
+    /**
+     * presenceDesintegrateur regarde s'il y a un desintégrateur en x,y
+     *
      * @param x
      * @param y
      * @return vrai ou faux
      */
-    public boolean presenceDesintegrateur(int x, int y){
-        if (grille[x][y].presenceDesintegrateur()==true){
+    public boolean presenceDesintegrateur(int x, int y) {
+        if (grille[x][y].presenceDesintegrateur() == true) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
-    /** placerDesintegrateur
-     * place un desintegrateur en x,y 
-     * @param x
-     * @param y 
-     */
-    public void placerDesintegrateur(int x, int y){
-        grille[x][y].placerDesintegrateur();
-    }
-    /** supprimerDesintegrateur
-     * supprime desintegrateur en x,y
-     * @param x
-     * @param y 
-     */
-    public void supprimerDesintegrateur(int x, int y){
-        grille[x][y].supprimerDesintegrateur();
-    }
-    /** supprimerJeton 
-     * supprime le jeton en x,y 
-     * @param x
-     * @param y 
-     */
-    public void supprimerJeton(int x , int y){
-        grille[x][y].supprimerJeton();
-    }
-    
-    /** recupererJeton 
-     * recupere le jeton en x,y 
+
+    /**
+     * placerDesintegrateur place un desintegrateur en x,y
+     *
      * @param x
      * @param y
-     * @return le référence du jeton retourné 
      */
-    public jeton recupererJeton(int x, int y){
+    public void placerDesintegrateur(int x, int y) {
+        grille[x][y].placerDesintegrateur();
+    }
+
+    /**
+     * supprimerDesintegrateur supprime desintegrateur en x,y
+     *
+     * @param x
+     * @param y
+     */
+    public void supprimerDesintegrateur(int x, int y) {
+        grille[x][y].supprimerDesintegrateur();
+    }
+
+    /**
+     * supprimerJeton supprime le jeton en x,y
+     *
+     * @param x
+     * @param y
+     */
+    public void supprimerJeton(int x, int y) {
+        grille[x][y].supprimerJeton();
+    }
+
+    /**
+     * recupererJeton recupere le jeton en x,y
+     *
+     * @param x
+     * @param y
+     * @return le référence du jeton retourné
+     */
+    public jeton recupererJeton(int x, int y) {
         return grille[x][y].recupererJeton();
     }
-    
-    
-}  
+
+}

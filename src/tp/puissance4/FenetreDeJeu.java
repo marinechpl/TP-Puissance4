@@ -53,27 +53,27 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                                 return;
                             }
                         }
-                            plateau.tasserGrille();
-                            panneau_grille.repaint();
-                            lb_J1_nbDesint.setText(listeJoueurs[0].nbDesintegrateur() + "");
-                            lb_J2_nbdesint.setText(listeJoueurs[1].nbDesintegrateur() + "");
+                        plateau.tasserGrille();
+                        panneau_grille.repaint();
+                        lb_J1_nbDesint.setText(listeJoueurs[0].nbDesintegrateur() + "");
+                        lb_J2_nbdesint.setText(listeJoueurs[1].nbDesintegrateur() + "");
 
-                            boolean vict_J1 = plateau.etreGagnantePourCouleur(listeJoueurs[0].lireCouleur());
-                            boolean vict_J2 = plateau.etreGagnantePourCouleur(listeJoueurs[1].lireCouleur());
-                            if (vict_J1 == true && vict_J2 == false) {
-                                msg.setText("Victoire de " + listeJoueurs[0].nom);
+                        boolean vict_J1 = plateau.etreGagnantePourCouleur(listeJoueurs[0].lireCouleur());
+                        boolean vict_J2 = plateau.etreGagnantePourCouleur(listeJoueurs[1].lireCouleur());
+                        if (vict_J1 == true && vict_J2 == false) {
+                            msg.setText("Victoire de " + listeJoueurs[0].nom);
+                        }
+                        if (vict_J1 == false && vict_J2 == true) {
+                            msg.setText("Victoire de " + listeJoueurs[1].nom);
+                        }
+                        if (vict_J1 == true && vict_J2 == true) {
+                            if (joueurCourant == listeJoueurs[0]) {
+                                msg.setText("Victoire de " + listeJoueurs[1].nom + ", (faute de jeu de l'autre joueur)");
+                            } else {
+                                msg.setText("Victoire de " + listeJoueurs[0].nom + ", (faute de jeu de l'autre joueur)");
                             }
-                            if (vict_J1 == false && vict_J2 == true) {
-                                msg.setText("Victoire de " + listeJoueurs[1].nom);
-                            }
-                            if (vict_J1 == true && vict_J2 == true) {
-                                if (joueurCourant == listeJoueurs[0]) {
-                                    msg.setText("Victoire de " + listeJoueurs[1].nom + ", (faute de jeu de l'autre joueur)");
-                                } else {
-                                    msg.setText("Victoire de " + listeJoueurs[0].nom + ", (faute de jeu de l'autre joueur)");
-                                }
-                            }
-                        
+                        }
+
                     }
                 });
                 panneau_grille.add(cellGraph);
@@ -313,6 +313,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         if (plateau.colonneRemplie(4) == true) {
             butt_C4.setEnabled(false);
         }
+
         JoueurSuivant();    }//GEN-LAST:event_butt_C4ActionPerformed
 
     private void butt_C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butt_C6ActionPerformed
@@ -527,22 +528,55 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         plateau.ajouterJetonDansColonne(joueurCourant, indice_colonne);
         panneau_grille.repaint();
 
-        lb_J1_nbDesint.setText(listeJoueurs[1].nbDesintegrateur() + "");
-        lb_J2_nbdesint.setText(listeJoueurs[0].nbDesintegrateur() + "");
+        lb_J1_nbDesint.setText(listeJoueurs[0].nbDesintegrateur() + "");
+        lb_J2_nbdesint.setText(listeJoueurs[1].nbDesintegrateur() + "");
 
         boolean vict_J1 = plateau.etreGagnantePourCouleur(listeJoueurs[0].lireCouleur());
         boolean vict_J2 = plateau.etreGagnantePourCouleur(listeJoueurs[1].lireCouleur());
         if (vict_J1 == true && vict_J2 == false) {
-            msg.setText("Victoire de " + listeJoueurs[0].nom);
+            msg.setText("Victoire de " + listeJoueurs[0].nom + "relancer la fenêtre pour rejouer");
+            butt_C0.setEnabled(false);
+            butt_C1.setEnabled(false);
+            butt_C2.setEnabled(false);
+            butt_C3.setEnabled(false);
+            butt_C4.setEnabled(false);
+            butt_C5.setEnabled(false);
+            butt_C6.setEnabled(false);
+            
         }
         if (vict_J1 == false && vict_J2 == true) {
-            msg.setText("Victoire de " + listeJoueurs[1].nom);
+            msg.setText("Victoire de " + listeJoueurs[1].nom + "relancer la fenêtre pour rejouer");
+            butt_C0.setEnabled(false);
+            butt_C1.setEnabled(false);
+            butt_C2.setEnabled(false);
+            butt_C3.setEnabled(false);
+            butt_C4.setEnabled(false);
+            butt_C5.setEnabled(false);
+            butt_C6.setEnabled(false);
+            
+
         }
         if (vict_J1 == true && vict_J2 == true) {
             if (joueurCourant == listeJoueurs[0]) {
-                msg.setText("Victoire de " + listeJoueurs[1].nom + ", (faute de jeu de l'autre joueur)");
+                msg.setText("Victoire de " + listeJoueurs[1].nom + ", (faute de jeu de l'autre joueur)" + "relancer la fenêtre pour rejouer");
+                butt_C0.setEnabled(false);
+                butt_C1.setEnabled(false);
+                butt_C2.setEnabled(false);
+                butt_C3.setEnabled(false);
+                butt_C4.setEnabled(false);
+                butt_C5.setEnabled(false);
+                butt_C6.setEnabled(false);
+                
             } else {
-                msg.setText("Victoire de " + listeJoueurs[0].nom + ", (faute de jeu de l'autre joueur)");
+                msg.setText("Victoire de " + listeJoueurs[0].nom + ", (faute de jeu de l'autre joueur)"+ "relancer la fenêtre pour rejouer");
+                butt_C0.setEnabled(false);
+                butt_C1.setEnabled(false);
+                butt_C2.setEnabled(false);
+                butt_C3.setEnabled(false);
+                butt_C4.setEnabled(false);
+                butt_C5.setEnabled(false);
+                butt_C6.setEnabled(false);
+                
             }
         }
 
