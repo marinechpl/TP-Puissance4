@@ -34,12 +34,46 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 cellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         CelluleDeGrille c = cellGraph.celluleAssocie;
-                        if (c.jetonCourant==null) return;
-                        if(c.jetonCourant.couleur.equals(joueurCourant.couleur)){
-                            msg.setText(" Le joueur "+joueurCourant.nom+" récupère un de ses jetons");
-                        }else{
-                            msg.setText(" Le joueur "+joueurCourant.nom+" veut désintégrer un jeton");
+                        if (c.jetonCourant == null) {
+                            return;
                         }
+                        if (c.jetonCourant.couleur.equals(joueurCourant.couleur)) {
+                            msg.setText(" Le joueur " + joueurCourant.nom + " récupère un de ses jetons");
+                            jeton jrecup = c.recupererJeton();
+                            joueurCourant.ajouterJeton(jrecup);
+                            JoueurSuivant();
+                        } else {
+                            if (joueurCourant.nbDesintegrateur() > 0) {
+                                msg.setText(" Le joueur " + joueurCourant.nom + " veut désintégrer un jeton");
+                                c.supprimerJeton();
+                                joueurCourant.utiliserDesintegrateur();
+                                JoueurSuivant();
+
+                            } else {
+                                return;
+                            }
+                        }
+                            plateau.tasserGrille();
+                            panneau_grille.repaint();
+                            lb_J1_nbDesint.setText(listeJoueurs[0].nbDesintegrateur() + "");
+                            lb_J2_nbdesint.setText(listeJoueurs[1].nbDesintegrateur() + "");
+
+                            boolean vict_J1 = plateau.etreGagnantePourCouleur(listeJoueurs[0].lireCouleur());
+                            boolean vict_J2 = plateau.etreGagnantePourCouleur(listeJoueurs[1].lireCouleur());
+                            if (vict_J1 == true && vict_J2 == false) {
+                                msg.setText("Victoire de " + listeJoueurs[0].nom);
+                            }
+                            if (vict_J1 == false && vict_J2 == true) {
+                                msg.setText("Victoire de " + listeJoueurs[1].nom);
+                            }
+                            if (vict_J1 == true && vict_J2 == true) {
+                                if (joueurCourant == listeJoueurs[0]) {
+                                    msg.setText("Victoire de " + listeJoueurs[1].nom + ", (faute de jeu de l'autre joueur)");
+                                } else {
+                                    msg.setText("Victoire de " + listeJoueurs[0].nom + ", (faute de jeu de l'autre joueur)");
+                                }
+                            }
+                        
                     }
                 });
                 panneau_grille.add(cellGraph);

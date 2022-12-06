@@ -49,6 +49,7 @@ public class PlateauDeJeu {
         }return indice_l;
     }
     
+    
     /** colonneRemplie 
      * @param ind_c
      * savoir si la colonne est remplie ou non 
@@ -228,14 +229,22 @@ public class PlateauDeJeu {
      * @param ind_c 
      */
     public void tasserColonne(int ind_c){
-        for (int i=0; i<5; i++){
-            if (grille[i][ind_c].presenceJeton()==false){
-                grille[i][ind_c]=grille[i+1][ind_c];
-                //grille[i+1][ind_c].affecterJeton(null);  
+        for (int i=0; i<6; i++){
+            if (i==5){
+                grille[i][ind_c].jetonCourant=null;
+            }else {
+            if (grille[i][ind_c].jetonCourant==null){
+                grille[i][ind_c].jetonCourant=grille[i+1][ind_c].jetonCourant;
+                grille[i+1][ind_c].jetonCourant=null;  
+            }
             }
         }
     }
-    
+    public void tasserGrille(){
+        for (int i=0; i<7; i++){
+            tasserColonne(i);
+        }
+    }
     
     
     /** presenceTrouNoir
