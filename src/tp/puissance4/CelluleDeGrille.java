@@ -128,8 +128,8 @@ public class CelluleDeGrille {
      * supprime jeton et le Trou Noir
      */
     public void activerTrouNoir(){
-        supprimerJeton();
-        supprimerTrouNoir();
+        jetonCourant=null;
+        avoirTrouNoir=false;
     }
     
     /** recupererJeton

@@ -29,15 +29,23 @@ public class PlateauDeJeu {
      * colonne en paramètre 
      * @return indice de la ligne 
      */
-    public int ajouterJetonDansColonne(jeton Jeton, int indice_c){
+    public int ajouterJetonDansColonne(Joueur joueurCourant, int indice_c){
         int indice_l=0;
         for(int i=0; i<6; i++){
-            if (grille[indice_l][indice_c-1].presenceJeton()==false){
-                grille[indice_l][indice_c-1].affecterJeton(Jeton);  
+            if (grille[indice_l][indice_c].presenceJeton()==false){
+                grille[indice_l][indice_c].affecterJeton(joueurCourant.jouerJeton());  
                 return indice_l;
+            }if (grille[indice_l][indice_c].presenceDesintegrateur()==true){
+                grille[indice_l][indice_c].supprimerDesintegrateur();
+                joueurCourant.obtenirDesintegrateur();
+            }if (grille[indice_l][indice_c].presenceTrouNoir()==true){
+                grille[indice_l][indice_c].activerTrouNoir();
+                grille[indice_l][indice_c].supprimerTrouNoir();
             }else {
                 indice_l=indice_l+1;
             }
+            
+            
         }return indice_l;
     }
     

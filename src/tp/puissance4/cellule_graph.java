@@ -41,6 +41,7 @@ public class cellule_graph extends JButton {
                     break;
                 case "rouge":
                     setIcon(img_JR);
+                    break;
                 case "vide":
                     setIcon(img_vide);
                     break;

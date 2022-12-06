@@ -177,10 +177,8 @@ public class Partie {
             resultatAction = plateau.colonneRemplie(colonne);
                 
         }
-        int l = plateau.ajouterJetonDansColonne(joueurCourant.jouerJeton(), colonne);
-        if (plateau.presenceDesintegrateur(l, colonne)==true){
-           joueurCourant.obtenirDesintegrateur();
-        }
+        int l = plateau.ajouterJetonDansColonne(joueurCourant, colonne);
+        
         
     }
     
